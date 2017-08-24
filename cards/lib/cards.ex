@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc """
+    Provides function for creating and handling a deck of cards.
+  """
+
+  @doc """
+    Return a list of strings representing a deck of playing cards.
+  """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Heards", "Diamond"]
@@ -16,6 +23,17 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
+  @doc """
+    Divides a deck into a hand and the remainder of the dack.
+    The `hand_size` argument indicates how many cards should
+    be in the hand.
+
+  ## Examples
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
@@ -31,6 +49,8 @@ defmodule Cards do
       {:error, _reason} -> "That file does not exist."
     end
   end
+
+
 
   def create_hand(hand_size) do
     # deck = Cards.create_deck
