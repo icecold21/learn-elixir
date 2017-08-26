@@ -38,9 +38,9 @@ defmodule Cards do
 
   ## Examples
       iex> deck = Cards.create_deck
-      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> {hand, deck} = Cards.deal(deck, 2)
       iex> hand
-      ["Ace of Spades"]
+      ["Three of Spades", "Four of Spades"]
   """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
@@ -57,8 +57,6 @@ defmodule Cards do
       {:error, _reason} -> "That file does not exist."
     end
   end
-
-
 
   def create_hand(hand_size) do
     # deck = Cards.create_deck
